@@ -10,32 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int ft_isspace(char c) {
-  if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v')
-    return (1);
-  return (0);
+static int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\f' || c == '\n'
+		|| c == '\r' || c == '\t' || c == '\v')
+		return (1);
+	return (0);
 }
 
-int ft_atoi(const char *nptr) {
-  int is_neg;
-  int i;
-  int num;
+int	ft_atoi(const char *nptr)
+{
+	int	is_neg;
+	int	i;
+	int	num;
 
-  is_neg = 0;
-  i = 0;
-  while (ft_isspace(nptr[i]))
-    i++;
-  if (nptr[i] == '-' || nptr[i] == '+') {
-    if (nptr[i] == '-')
-      is_neg = 1;
-    i++;
-  }
-  num = 0;
-  while ((nptr[i] >= '0') && (nptr[i] <= '9')) {
-    num = (num * 10) + nptr[i] - '0';
-    i++;
-  }
-  if (is_neg)
-    return (-num);
-  return (num);
+	is_neg = 0;
+	i = 0;
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			is_neg = 1;
+		i++;
+	}
+	num = 0;
+	while ((nptr[i] >= '0') && (nptr[i] <= '9'))
+	{
+		num = (num * 10) + nptr[i] - '0';
+		i++;
+	}
+	if (is_neg)
+		return (-num);
+	return (num);
 }
