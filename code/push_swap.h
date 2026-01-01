@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -32,5 +33,6 @@ void	stack_print(t_stack *head);
 void	stack_push(t_stack **head, t_stack *node);
 void	stack_free(t_stack **head);
 int		stack_size(t_stack *head);
+void	stack_add_last(t_stack **head, t_stack *node);
 
 #endif
