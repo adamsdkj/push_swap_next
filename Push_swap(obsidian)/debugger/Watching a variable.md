@@ -1,0 +1,2 @@
+
+- In the debugger to watch a variable you should press  the plus sign in the watch section and then add `argv@argc` this shows all the argument in the `argv` or you can use `(char *)argv[i]` because sometimes gbd get confused with types 
