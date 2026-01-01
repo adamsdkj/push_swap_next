@@ -34,6 +34,6 @@ void	stack_push(t_stack **head, t_stack *node);
 void	stack_free(t_stack **head);
 int		stack_size(t_stack *head);
 void	stack_add_last(t_stack **head, t_stack *node);
-int	stack_is_sorted(t_stack *head);
+int		stack_is_sorted(t_stack *head);
 
 #endif
