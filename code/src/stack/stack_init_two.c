@@ -29,3 +29,16 @@ void	stack_add_last(t_stack **head, t_stack *node)
 	(*head)->next = node;
 	*head = first;
 }
+
+int	stack_is_sorted(t_stack *head)
+{
+	if (!head)
+		return (1);
+	while (head && head->next != NULL)
+	{
+		if (head->value > head->next->value)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
