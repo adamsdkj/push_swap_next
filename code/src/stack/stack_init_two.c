@@ -42,3 +42,32 @@ int	stack_is_sorted(t_stack *head)
 	}
 	return (1);
 }
+
+float	compute_disorder(t_stack *a)
+{
+	t_stack		*comp;
+	float		mistake;
+	float		total_pairs;
+	float		disorder;
+
+	disorder = 0.0;
+	mistake = 0.0;
+	total_pairs = 0.0;
+	comp = NULL;
+	if (!a)
+		return (0);
+	while (a)
+	{
+		comp = a->next;
+		while (comp)
+		{
+			total_pairs += 1;
+			if (a->value > comp->value)
+				mistake += 1;
+			comp = comp->next;
+		}
+		a = a->next;
+	}
+	 disorder = mistake / total_pairs;
+	return (disorder);
+}
