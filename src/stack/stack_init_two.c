@@ -68,6 +68,6 @@ float	compute_disorder(t_stack *a)
 		}
 		a = a->next;
 	}
-	 disorder = mistake / total_pairs;
+	disorder = mistake / total_pairs;
 	return (disorder);
 }
