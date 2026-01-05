@@ -40,7 +40,7 @@ git commit -m "commit"
 git push origin main ## origin the name of the remote repo an the main is the branch 
 
 ## to github
-git push github main
+git push github master:main ## master is the local branch and the main is remote branch 
 ```
 
 #### Trick
@@ -61,3 +61,4 @@ git push -u github main
 
 git push
 ```
+
