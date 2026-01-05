@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   parsing_helpers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbahry <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 00:34:19 by cbahry            #+#    #+#             */
-/*   Updated: 2025/11/06 23:28:57 by cbahry           ###   ########.fr       */
+/*   Created: 2026-01-05 01:31:58 by adadra            #+#    #+#             */
+/*   Updated: 2026-01-05 01:31:58 by adadra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../push_swap.h"
 
 static int	ft_isspace(char c)
 {
@@ -18,11 +19,11 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int	is_neg;
-	int	i;
-	int	num;
+	int		is_neg;
+	int		i;
+	long	num;
 
 	is_neg = 0;
 	i = 0;
@@ -43,4 +44,30 @@ int	ft_atoi(const char *nptr)
 	if (is_neg)
 		return (-num);
 	return (num);
+}
+
+int	handle_number(long number, int *nb)
+{
+	if (!number)
+		return (0);
+	if (number > INT_MAX || number < INT_MIN)
+		return (-1);
+	*nb = (int) number;
+	return (1);
+}
+
+int	is_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) != 1)
+			return (0);
+		i++;
+	}
+	return (1);
 }

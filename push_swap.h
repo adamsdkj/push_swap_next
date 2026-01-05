@@ -36,5 +36,11 @@ void	stack_free(t_stack **head);
 int		stack_size(t_stack *head);
 void	stack_add_last(t_stack **head, t_stack *node);
 int		stack_is_sorted(t_stack *head);
+void	print_error(t_stack **head);
+int		handle_number(long number, int *nb);
+long	ft_atol(const char *nptr);
+void	print_error_split(t_stack **head, char **numbers);
+void	ft_free(char **s);
+int		is_number(char *str);
 
 #endif
