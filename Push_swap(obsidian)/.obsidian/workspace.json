@@ -8,17 +8,29 @@
         "type": "tabs",
         "children": [
           {
+<<<<<<< HEAD
             "id": "682faba4c57b7f1b",
+=======
+            "id": "eb5b66ae803780a6",
+>>>>>>> github/main
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
+<<<<<<< HEAD
                 "file": "Remote repository.md",
+=======
+                "file": "Push_swap project structure.md",
+>>>>>>> github/main
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
+<<<<<<< HEAD
               "title": "Remote repository"
+=======
+              "title": "Push_swap project structure"
+>>>>>>> github/main
             }
           }
         ]
@@ -78,8 +90,12 @@
       }
     ],
     "direction": "horizontal",
+<<<<<<< HEAD
     "width": 300,
     "collapsed": true
+=======
+    "width": 300
+>>>>>>> github/main
   },
   "right": {
     "id": "fdbf1aaa0f95152b",
@@ -184,12 +200,19 @@
       "bases:Create new base": false
     }
   },
+<<<<<<< HEAD
   "active": "682faba4c57b7f1b",
   "lastOpenFiles": [
     "Push_swap project structure.md",
     "Remote repository.md",
     "Github",
     "PLAN.md",
+=======
+  "active": "eb5b66ae803780a6",
+  "lastOpenFiles": [
+    "PLAN.md",
+    "Push_swap project structure.md",
+>>>>>>> github/main
     "Starting.md",
     "Charbel imp.md",
     "CODE/Charbel imp",
