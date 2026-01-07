@@ -28,6 +28,7 @@ void	print_error(t_stack **head)
 {
 	stack_free(head);
 	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	print_error_split(t_stack **head, char **numbers)
@@ -35,4 +36,5 @@ void	print_error_split(t_stack **head, char **numbers)
 	ft_free(numbers);
 	stack_free(head);
 	write(2, "Error\n", 6);
+	exit(1);
 }

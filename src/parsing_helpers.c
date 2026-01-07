@@ -71,3 +71,26 @@ int	is_number(char *str)
 	}
 	return (1);
 }
+
+void	is_dublicate(t_stack	**head)
+{
+	t_stack	*first;
+	t_stack	*tmp;
+
+	if (!head)
+		return ;
+	first = *head;
+	tmp = NULL;
+	while (*head)
+	{
+		tmp = (*head)->next;
+		while (tmp)
+		{
+			if ((*head)->value == tmp->value)
+				print_error(&first);
+			tmp = tmp->next;
+		}
+		*head = (*head)->next;
+	}
+	*head = first;
+}

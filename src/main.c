@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-static t_stack	*parse_numbers2(char *argv[])
+static t_stack	*parse_numbers2(char *argv[], int start)
 {
 	t_stack	*head;
 	char	**numbers;
@@ -21,15 +21,12 @@ static t_stack	*parse_numbers2(char *argv[])
 	i = 0;
 	nb = 0;
 	head = NULL;
-	numbers = ft_split(argv[1], ' ');
+	numbers = ft_split(argv[1 + start], ' ');
 	while (numbers[i])
 	{
 		if ((is_number(numbers[i]) == 0)
 			|| (handle_number(ft_atol(numbers[i]), &nb) == -1))
-		{
 			print_error_split(&head, numbers);
-			return (NULL);
-		}
 		stack_push(&head, stack_new(nb));
 		nb = 0;
 		i++;
@@ -38,26 +35,23 @@ static t_stack	*parse_numbers2(char *argv[])
 	return (head);
 }
 
-t_stack	*parse_numbers(int argc, char *argv[])
+t_stack	*parse_numbers(int argc, char *argv[], int start)
 {
 	t_stack	*head;
 	int		nb;
 	int		i;
 
-	i = 0;
+	i = start;
 	head = NULL;
-	if (argc == 2)
-		head = parse_numbers2(argv);
+	if (argc == 2 + start)
+		head = parse_numbers2(argv, start);
 	else
 	{
 		while (++i < argc)
 		{
 			if ((is_number(argv[i]) == 0)
 				|| handle_number(ft_atol(argv[i]), &nb) == -1)
-			{
 				print_error(&head);
-				return (NULL);
-			}
 			stack_push(&head, stack_new(nb));
 			nb = 0;
 		}
@@ -67,28 +61,59 @@ t_stack	*parse_numbers(int argc, char *argv[])
 	return (head);
 }
 
-t_stack	*parse_argument(int argc, char *argv[])
+t_stack	*parse_flags(int argc, char *argv[], t_data *data)
 {
+	int		count;
+	t_stack	*result;
+
+	count = 1;
+	while (count <= 2)
+	{
+		if (parse_flags2(argv, &count, data) == -1)
+			break ;
+		if (count == 2)
+			break ;
+		count++;
+	}
+	result = parse_numbers(argc, argv, count);
+	return (result);
+}
+
+t_data	parse_argument(int argc, char *argv[])
+{
+	t_data data;
+	t_stack	*result;
+
+	data = data_init();
+	result = NULL;
 	if (argc < 2)
-		return (NULL);
+		return (data_init());
 	else
 	{
-		if (((argv[1][0] == '-') && (argv[1][1] == '-')) && (argc > 2))
-			printf("parse with args with numbers");
+		if ((ft_strncmp(argv[1], "--", 2) == 0) && (argc > 2))
+		{
+			result = parse_flags(argc, argv, &data);
+			is_dublicate(&result);
+		}
 		else
-			return (parse_numbers(argc, argv));
+		{
+			result = parse_numbers(argc, argv, 0);
+			is_dublicate(&result);
+		}
 	}
-	return (0);
+	data.a = result;
+	return (data);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_stack	*head;
+	t_data data;
 
-	head = parse_argument(argc, argv);
-	if (!head)
-		return (0);
-	stack_print(head);
-	stack_free(&head);
+	data = data_init();
+	data = parse_argument(argc, argv);
+	stack_print(data.a);
+	stack_free(&data.a);
+	printf("bench mode: %d\n",data.bench);
+	printf("strat: %d",data.strategy);
 	return (0);
 }

@@ -23,11 +23,22 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef enum e_strategy
+{
+    STRATEGY_SIMPLE,
+    STRATEGY_MEDIUM,
+    STRATEGY_COMPLEX,
+    STRATEGY_ADAPTIVE
+}	t_strategy;
+
 typedef struct s_data
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack		*a;
+	t_stack		*b;
+	t_strategy	strategy;
+	int 		bench;
 }	t_data;
+
 
 t_stack	*stack_new(int value);
 void	stack_print(t_stack *head);
@@ -42,5 +53,8 @@ long	ft_atol(const char *nptr);
 void	print_error_split(t_stack **head, char **numbers);
 void	ft_free(char **s);
 int		is_number(char *str);
+void	is_dublicate(t_stack **head);
+int		parse_flags2(char *argv[], int *count, t_data *data);
+t_data	data_init(void);
 
 #endif
