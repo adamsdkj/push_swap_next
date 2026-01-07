@@ -24,8 +24,8 @@ void  pa(t_data *stack)
   stack->b = stack->b->next;
   first_b->next = first_a;
   stack->a = first_b;
-  stack.stats.pa_count += 1;
-  stack.stats.total_ops += 1;
+  stack->stats.pa_count += 1;
+  stack->stats.total_ops += 1;
   write(1, "pa\n", 3);
 }
 
@@ -42,8 +42,8 @@ void  pb(t_data *stack)
   stack->a = stack->a->next;
   first_a->next = first_b;
   stack->b = first_a;
-  stack.stats.pb_count += 1;
-  stack.stats.total_ops += 1;
+  stack->stats.pb_count += 1;
+  stack->stats.total_ops += 1;
   write(1, "pb\n", 3);
 }
 

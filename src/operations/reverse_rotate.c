@@ -28,8 +28,8 @@ void  rra(t_data *stack, int is_separate)
   stack->a = last;
   if (is_separate == 1)
   {
-    stack.stats.rra_count += 1;
-    stack.stats.total_ops += 1;
+    stack->stats.rra_count += 1;
+    stack->stats.total_ops += 1;
     write(1, "rra\n", 4);
   }
 }
@@ -50,8 +50,8 @@ void  rrb(t_data *stack, int is_separate)
   stack->b = last;
   if (is_separate == 1)
   {
-    stack.stats.rrb_count += 1;
-    stack.stats.total_ops += 1;
+    stack->stats.rrb_count += 1;
+    stack->stats.total_ops += 1;
     write(1, "rrb\n", 4);
   }
 }
@@ -63,8 +63,8 @@ void  rrr(t_data *stack)
     return ;
   rra(stack, 0);
   rrb(stack, 0);
-  stack.stats.rrr_count += 1;
-  stack.stats.total_ops += 1;
+  stack->stats.rrr_count += 1;
+  stack->stats.total_ops += 1;
   write(1, "rrr\n", 4);
 }
 

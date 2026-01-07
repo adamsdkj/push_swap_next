@@ -25,8 +25,8 @@ void  sa(t_data *stack, int is_separate)
   stack->a = second;
   if (is_separate == 1)
   {
-    stack.stats.sa_count += 1;
-    stack.stats.total_ops += 1;
+    stack->stats.sa_count += 1;
+    stack->stats.total_ops += 1;
     write(1, "sa\n", 3);
   }
 }
@@ -45,8 +45,8 @@ void  sb(t_data *stack, int is_separate)
   stack->b = second;
   if (is_separate == 1)
   {
-    stack.stats.sb_count += 1;
-    stack.stats.total_ops += 1;
+    stack->stats.sb_count += 1;
+    stack->stats.total_ops += 1;
     write(1, "sb\n", 3);
   }
 }
@@ -57,8 +57,8 @@ void ss(t_data *stack)
     return ;
   sa(stack, 0);
   sb(stack, 0);
-  stack.stats.ss_count += 1;
-  stack.stats.total_ops += 1;
+  stack->stats.ss_count += 1;
+  stack->stats.total_ops += 1;
   write(1, "ss\n", 3);
 }
 
