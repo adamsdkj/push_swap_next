@@ -6,7 +6,7 @@
 /*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025-12-31 12:55:28 by adadra            #+#    #+#             */
-/*   Updated: 2025-12-31 12:55:28 by adadra           ###   ########.fr       */
+/*   Updated: 2026/01/07 23:39:36 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,25 @@ typedef struct s_data
 	t_stack		*b;
 	t_strategy	strategy;
 	int 		bench;
+  t_stats stats;
 }	t_data;
 
+typedef struct s_stats
+{
+  int total_ops;
+  int sa_count;
+  int sb_count;
+  int ss_count;
+  int pa_count;
+  int pb_count;
+  int ra_count;
+  int rb_count;
+  int rr_count;
+  int rra_count;
+  int rrb_count;
+  int rrr_count;
+  float disorder;
+} t_stats;
 
 t_stack	*stack_new(int value);
 void	stack_print(t_stack *head);
@@ -57,6 +74,17 @@ void	is_dublicate(t_stack **head);
 int		parse_flags2(char *argv[], int *count, t_data *data);
 t_data	data_init(void);
 void	print_error_solo(void);
-void  stack_free_all(t_data **stack);
-
+void  stack_free_all(t_data *stack);
+void  pa(t_data *stack);
+void  pb(t_data *stack);
+void  rra(t_data *stack, int is_separate);
+void  rrb(t_data *stack, int is_separate);
+void  rrr(t_data *stack);
+void  ra(t_data *stack, int is_separate);
+void  rb(t_data *stack, int is_separate);
+void  rr(t_data *stack);
+void  sb(t_data *stack, int is_separate);
+void  sa(t_data *stack, int is_separate);
+void  ss(t_data *stack);
+void  selection_sort(t_data *stack);
 #endif
