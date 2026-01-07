@@ -47,7 +47,7 @@ void	stack_free(t_stack **head)
 {
 	t_stack	*current;
 
-	if (!head)
+	if (!head || !(*head))
 		return ;
 	while (*head)
 	{
@@ -55,6 +55,7 @@ void	stack_free(t_stack **head)
 		*head = (*head)->next;
 		free(current);
 	}
+  *head = NULL;
 }
 
 int	stack_size(t_stack *head)
