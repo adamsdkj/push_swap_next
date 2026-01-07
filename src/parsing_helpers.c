@@ -61,7 +61,7 @@ int	is_number(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	if ((str[i] == '-' || str[i] == '+') && (ft_isdigit(str[i + 1]) == 1))
 		i++;
 	while (str[i])
 	{

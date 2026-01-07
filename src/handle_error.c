@@ -38,3 +38,9 @@ void	print_error_split(t_stack **head, char **numbers)
 	write(2, "Error\n", 6);
 	exit(1);
 }
+
+void	print_error_solo(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}

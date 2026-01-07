@@ -90,7 +90,7 @@ t_data	parse_argument(int argc, char *argv[])
 		return (data_init());
 	else
 	{
-		if ((ft_strncmp(argv[1], "--", 2) == 0) && (argc > 2))
+		if ((ft_strncmp(argv[1], "-", 1) == 0) && (argc > 2))
 		{
 			result = parse_flags(argc, argv, &data);
 			is_dublicate(&result);

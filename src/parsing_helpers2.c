@@ -23,6 +23,8 @@ int	parse_flags2(char *argv[], int *c, t_data *data)
 		data->strategy = 3;
 	else if ((ft_strncmp(argv[*c], "--bench", 8)) == 0)
 		data->bench = 1;
+	else if ((ft_strncmp(argv[*c], "-", 1)) == 0)
+		print_error_solo();
 	else
 	{
 		*c = 1;
