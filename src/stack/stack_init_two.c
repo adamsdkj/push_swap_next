@@ -71,3 +71,14 @@ float	compute_disorder(t_stack *a)
 	disorder = mistake / total_pairs;
 	return (disorder);
 }
+
+t_data	data_init(void)
+{
+	t_data	data;
+
+	data.a = NULL;
+	data.b = NULL;
+	data.bench = 0;
+	data.strategy = 3;
+	return (data);
+}
