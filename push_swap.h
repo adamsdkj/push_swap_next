@@ -57,5 +57,6 @@ void	is_dublicate(t_stack **head);
 int		parse_flags2(char *argv[], int *count, t_data *data);
 t_data	data_init(void);
 void	print_error_solo(void);
+void  stack_free_all(t_data **stack);
 
 #endif

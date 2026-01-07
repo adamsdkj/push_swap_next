@@ -64,3 +64,24 @@ void  pb(t_data **stack)
 //   free(stack);
 //   return (0);
 // }
+
+// int main(void)
+// {
+//   t_data *data;
+//   data = malloc(sizeof(t_data));
+//   if (!data)
+//     return (1);
+//   *data = data_init();
+//   stack_push(&(data->a), stack_new(10));
+//   stack_push(&(data->a), stack_new(20));
+//   stack_push(&(data->a), stack_new(30));
+
+
+//   pb(&data);
+//   stack_print(data->a);
+//   printf("\n-------\n");
+//   stack_print(data->b);
+  
+//   stack_free_all(&data);
+//   return (0);
+// }
