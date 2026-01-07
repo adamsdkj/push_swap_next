@@ -12,47 +12,59 @@
 
 #include "../../push_swap.h"
 
-void  ra(t_data **stack)
+void  ra(t_data *stack, int is_separate)
 {
   t_stack *current;
   t_stack *second;
   
-  if (!stack || !(*stack) || !(*stack)->a || !(*stack)->a->next)
+  if (!stack || !stack->a || !stack->a->next)
     return ;
-  current = (*stack)->a;
-  second = (*stack)->a->next;
+  current = stack->a;
+  second = stack->a->next;
   while (current->next != NULL)
     current = current->next;
-  current->next = (*stack)->a;
-  (*stack)->a->next = NULL;
-  (*stack)->a = second;
-  write(1, "ra\n", 3);
+  current->next = stack->a;
+  stack->a->next = NULL;
+  stack->a = second;
+  if (is_separate == 1)
+  {
+    stack.stats.ra_count += 1;
+    stack.stats.total_ops += 1;
+    write(1, "ra\n", 3);
+  }
 }
 
-void  rb(t_data **stack)
+void  rb(t_data *stack, int is_separate)
 {
   t_stack *current;
   t_stack *second;
   
-  if (!stack || !(*stack) || !(*stack)->b || !(*stack)->b->next)
+  if (!stack || !stack->b || !stack->b->next)
     return ;
-  current = (*stack)->b;
-  second = (*stack)->b->next;
+  current = stack->b;
+  second = stack->b->next;
   while (current->next != NULL)
     current = current->next;
-  current->next = (*stack)->b;
-  (*stack)->b->next = NULL;
-  (*stack)->b = second;
-  write(1, "rb\n", 3);
+  current->next = stack->b;
+  stack->b->next = NULL;
+  stack->b = second;
+  if (is_separate == 1)
+  {
+    stack.stats.rb_count += 1;
+    stack.stats.total_ops += 1;
+    write(1, "rb\n", 3);
+  }
 }
 
-void  rr(t_data **stack)
+void  rr(t_data *stack)
 {
-  if (!stack || !(*stack) || !(*stack)->a || !(*stack)->a->next
-      || !(*stack)->b || !(*stack)->b->next)
+  if (!stack || !stack->a || !stack->a->next
+      || !stack->b || !stack->b->next)
     return ;
-  ra(stack);
-  rb(stack);
+  ra(stack, 0);
+  rb(stack, 0);
+  stack.stats.rr_count += 1;
+  stack.stats.total_ops += 1;
   write(1, "rr\n", 3);
 }
 
