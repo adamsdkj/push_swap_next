@@ -71,3 +71,13 @@ float	compute_disorder(t_stack *a)
 	disorder = mistake / total_pairs;
 	return (disorder);
 }
+
+void  stack_free_all(t_data **stack)
+{
+  if (!stack || !(*stack))
+    return ;
+  stack_free(&(*stack)->a);
+  stack_free(&(*stack)->b);
+  free(*stack);
+  *stack = NULL;
+}
