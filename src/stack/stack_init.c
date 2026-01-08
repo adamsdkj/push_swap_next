@@ -55,7 +55,7 @@ void	stack_free(t_stack **head)
 		*head = (*head)->next;
 		free(current);
 	}
-  *head = NULL;
+	*head = NULL;
 }
 
 int	stack_size(t_stack *head)

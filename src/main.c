@@ -81,7 +81,7 @@ t_stack	*parse_flags(int argc, char *argv[], t_data *data)
 
 t_data	parse_argument(int argc, char *argv[])
 {
-	t_data data;
+	t_data	data;
 	t_stack	*result;
 
 	data = data_init();
@@ -107,13 +107,13 @@ t_data	parse_argument(int argc, char *argv[])
 
 int	main(int argc, char *argv[])
 {
-	t_data data;
+	t_data	data;
 
 	data = data_init();
 	data = parse_argument(argc, argv);
 	stack_print(data.a);
 	stack_free(&data.a);
-	printf("bench mode: %d\n",data.bench);
-	printf("strat: %d",data.strategy);
+	printf("bench mode: %d\n", data.bench);
+	printf("strat: %d", data.strategy);
 	return (0);
 }
