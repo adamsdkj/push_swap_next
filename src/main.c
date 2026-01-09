@@ -44,6 +44,7 @@ t_stack	*parse_numbers(int argc, char *argv[], int start)
 
 	i = start;
 	head = NULL;
+	nb = 0;
 	if (argc == 2 + start)
 		head = parse_numbers2(argv, start);
 	else
