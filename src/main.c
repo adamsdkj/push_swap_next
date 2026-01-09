@@ -28,7 +28,7 @@ static t_stack	*parse_numbers2(char *argv[], int start)
 		if ((is_number(numbers[i]) == 0)
 			|| (handle_number(ft_atol(numbers[i]), &nb) == -1))
 			print_error_split(&head, numbers);
-		stack_push(&head, stack_new(nb));
+		stack_add_last(&head, stack_new(nb));
 		nb = 0;
 		i++;
 	}
@@ -54,7 +54,7 @@ t_stack	*parse_numbers(int argc, char *argv[], int start)
 			if ((is_number(argv[i]) == 0)
 				|| handle_number(ft_atol(argv[i]), &nb) == -1)
 				print_error(&head);
-			stack_push(&head, stack_new(nb));
+			stack_add_last(&head, stack_new(nb));
 			nb = 0;
 		}
 	}
