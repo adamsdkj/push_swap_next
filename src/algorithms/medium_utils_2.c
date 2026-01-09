@@ -14,21 +14,25 @@
 
 int	find_max_pos(t_stack *b)
 {
-	int	max;
+	int	max_rank;
 	int	pos;
 	int i;
+	t_stack	*current;
 
-	max = b->rank;
+	if (!b)
+		return (0);
+	max_rank = b->rank;
 	pos = 0;
 	i = 0;
-	while (b)
+	current = b;
+	while (current)
 	{
-		if (b->rank > max)
+		if (current->rank > max_rank)
 		{
-			max = b->rank;
+			max_rank = current->rank;
 			pos = i;
 		}
-		b = b->next;
+		current = current->next;
 		i++;
 	}
 	return (pos);
@@ -52,27 +56,59 @@ int	find_max_rank(t_stack *b)
 	return (max_rank);
 }
 
+void	push_all_chunks(t_data *stack, int chunk_size)
+{
+	int	total;
+	int	i;
+	int	min;
+	int	max;
+
+	if (chunk_size <= 0)
+		chunk_size = 1 ;
+	total = stack_size(stack->a);
+	i = 0;
+	while (i * chunk_size < total)
+	{
+		min = i * chunk_size;
+		max = min + chunk_size - 1;
+		if (max >= total)
+			max = total - 1;
+		push_chunk(stack, min, max);
+		i++;
+	}
+}
+
 void	push_back_to_a(t_data *stack)
 {
 	int	pos;
 	int	size;
-	int	max_rank;
 
 	while (stack->b)
 	{
+		if (stack->b->rank == find_max_rank(stack->b))
+		{
+			pa(stack);
+			continue ;
+		}
 		size = stack_size(stack->b);
 		pos = find_max_pos(stack->b);
-		max_rank = find_max_rank(stack->b);
 		if (pos <= size / 2)
 		{
-			while (stack->b->rank != max_rank)
+			while (pos > 0)
+			{
 				rb(stack, 1);
+				pos--;
+			}
 		}
 		else
 		{
-			while (stack->b->rank != max_rank)
+			while (pos < size)
+			{
 				rrb(stack, 1);
+				pos++;
+			}
 		}
 		pa(stack);
 	}
 }
+

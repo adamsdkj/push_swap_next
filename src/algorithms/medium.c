@@ -21,7 +21,12 @@ void	chunk_sort(t_data *stack)
 	if (size <= 1)
 		return ;
 	assign_ranks(stack->a);
-	chunk_size = ft_sqrt(size) * 2;
+	if (size <= 100)
+		chunk_size = 15;
+	else
+		chunk_size = 30;
+	if (chunk_size < 1)
+		chunk_size = 1;
 	push_all_chunks(stack, chunk_size);
 	push_back_to_a(stack);
 }

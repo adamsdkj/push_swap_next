@@ -68,83 +68,71 @@ int	*create_sorted_array(t_stack *stack_a)
 
 void	assign_ranks(t_stack *stack_a)
 {
-	int		size;
 	int		*sorted;
 	t_stack	*current;
-	int		i;
+	int	left;
+	int	right;
+	int	mid;
 
-	i = 0;
-	size = stack_size(stack_a);
 	sorted = create_sorted_array(stack_a);
 	current = stack_a;
 	while (current)
 	{
-		i = 0;
-		while (i < size)
+		left = 0;
+		right = stack_size(stack_a) - 1;
+		while (left <= right)
 		{
-			if (current->value == sorted[i])
+			mid = (left + right) / 2;
+			if (sorted[mid] == current->value)
 			{
-				current->rank = i;
+				current->rank = mid;
 				break ;
 			}
-			i++;
+			else if (sorted[mid] < current->value)
+				left = mid + 1;
+			else
+				right = mid - 1;
 		}
 		current = current->next;
 	}
 	free(sorted);
 }
 
-void	push_chunk(t_data *stack, int min_rank, int max_rank)
+int	find_pos_in_range(t_stack *a, int min, int max)
 {
-	int	mid;
-	int	pushed;
+	int	pos = 0;
+	while (a)
+	{
+		if (a->rank >= min && a->rank <= max)
+			return pos;
+		pos++;
+		a = a->next;
+	}
+	return -1;
+}
+
+void	push_chunk(t_data *s, int min, int max)
+{
+	int	pos;
 	int	size;
-	int	rotations;
+	int	mid;
 
-	pushed = 0;
-	mid = (min_rank + max_rank) / 2;
-	size = stack_size(stack->a);
-	rotations = 0;
-
-	//ft_printf("BEFORE CHUNK [%d-%d]: A=%d, B=%d\n", min_rank, max_rank, stack_size(stack->a), stack_size(stack->b));
-
-	while (pushed < (max_rank - min_rank + 1) && rotations < size)
+	mid = (min + max) / 2;
+	while (1)
 	{
-		if (stack->a->rank >= min_rank && stack->a->rank <= max_rank)
-		{
-			pb(stack);
-			//ft_printf("After pb: A=%d, B=%d\n", stack_size(stack->a), stack_size(stack->b));
-			if (stack->b && stack->b->rank > mid)
-				rb(stack, 1);
-			pushed++;
-			rotations = 0;
-		}
+		pos = find_pos_in_range(s->a, min, max);
+		if (pos == -1)
+			break;
+		size = stack_size(s->a);
+		if (pos <= size / 2)
+			while (pos--)
+				ra(s, 1);
 		else
-		{
-			ra(stack, 1);
-			rotations++;
-		}
-	}
-
-	//ft_printf("AFTER CHUNK [%d-%d]: A=%d, B=%d, pushed=%d\n", min_rank, max_rank, stack_size(stack->a), stack_size(stack->b), pushed);
-}
-
-void	push_all_chunks(t_data *stack, int chunk_size)
-{
-	int	total;
-	int	chunk;
-	int	min;
-	int	max;
-
-	total = stack_size(stack->a);
-	chunk = 0;
-	while (chunk * chunk_size < total)
-	{
-		min = chunk * chunk_size;
-		max = min + chunk_size - 1;
-		if (max >= total)
-			max = total - 1;
-		push_chunk(stack, min, max);
-		chunk++;
+			while (pos++ < size)
+				rra(s, 1);
+		pb(s);
+		if (s->b->rank > mid)
+			rb(s, 1);
 	}
 }
+

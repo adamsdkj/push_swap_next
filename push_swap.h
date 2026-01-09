@@ -92,5 +92,6 @@ int		ft_sqrt(float nb);
 void	assign_ranks(t_stack *stack_a);
 void	push_all_chunks(t_data *stack, int chunk_size);
 void	push_back_to_a(t_data *stack);
-
+void	chunk_sort(t_data *stack);
+void	push_chunk(t_data *stack, int min_rank, int max_rank);
 #endif

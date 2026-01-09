@@ -114,6 +114,6 @@ int	main(int argc, char *argv[])
 	data = data_init();
 	data = parse_argument(argc, argv);
 	selection_sort(&data);
-	stack_print(data.a);
+	// stack_print(data.a);
 	return (0);
 }
