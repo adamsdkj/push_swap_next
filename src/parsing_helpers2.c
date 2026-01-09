@@ -9,7 +9,7 @@
 /*   Updated: 2026-01-06 20:37:26 by adadra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	parse_flags2(char *argv[], int *c, t_data *data)
 {

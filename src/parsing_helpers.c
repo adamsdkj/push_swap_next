@@ -9,7 +9,7 @@
 /*   Updated: 2026-01-05 01:31:58 by adadra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	ft_isspace(char c)
 {

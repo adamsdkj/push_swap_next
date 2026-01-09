@@ -9,7 +9,7 @@
 /*   Updated: 2026/01/05 14:20:32 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 void	sa(t_data *stack, int is_separate)
 {

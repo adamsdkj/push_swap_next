@@ -9,7 +9,7 @@
 /*   Updated: 2026-01-01 14:07:16 by adadra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*stack_new(int value)
 {
