@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ra(t_data *stack, int is_separate)
+void	ra(t_data *stack, int is_separate, int is_print)
 {
 	t_stack	*current;
 	t_stack	*second;
@@ -30,11 +30,12 @@ void	ra(t_data *stack, int is_separate)
 	{
 		stack->stats.ra_count += 1;
 		stack->stats.total_ops += 1;
-		write(1, "ra\n", 3);
+		if (is_print == 1)
+			write(1, "ra\n", 3);
 	}
 }
 
-void	rb(t_data *stack, int is_separate)
+void	rb(t_data *stack, int is_separate, int is_print)
 {
 	t_stack	*current;
 	t_stack	*second;
@@ -52,18 +53,20 @@ void	rb(t_data *stack, int is_separate)
 	{
 		stack->stats.rb_count += 1;
 		stack->stats.total_ops += 1;
-		write(1, "rb\n", 3);
+		if (is_print == 1)
+			write(1, "rb\n", 3);
 	}
 }
 
-void	rr(t_data *stack)
+void	rr(t_data *stack, int is_print)
 {
 	if (!stack || !stack->a || !stack->a->next
 		|| !stack->b || !stack->b->next)
 		return ;
-	ra(stack, 0);
-	rb(stack, 0);
+	ra(stack, 0, 0);
+	rb(stack, 0, 0);
 	stack->stats.rr_count += 1;
 	stack->stats.total_ops += 1;
-	write(1, "rr\n", 3);
+	if (is_print == 1)
+		write(1, "rr\n", 3);
 }

@@ -111,7 +111,7 @@ int	find_pos_in_range(t_stack *a, int min, int max)
 	return -1;
 }
 
-void	push_chunk(t_data *s, int min, int max)
+void	push_chunk(t_data *s, int min, int max, int is_print)
 {
 	int	pos;
 	int	size;
@@ -126,13 +126,13 @@ void	push_chunk(t_data *s, int min, int max)
 		size = stack_size(s->a);
 		if (pos <= size / 2)
 			while (pos--)
-				ra(s, 1);
+				ra(s, 1, is_print);
 		else
 			while (pos++ < size)
-				rra(s, 1);
-		pb(s);
+				rra(s, 1, is_print);
+		pb(s, is_print);
 		if (s->b->rank > mid)
-			rb(s, 1);
+			rb(s, 1, is_print);
 	}
 }
 

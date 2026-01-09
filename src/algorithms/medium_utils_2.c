@@ -56,7 +56,7 @@ int	find_max_rank(t_stack *b)
 	return (max_rank);
 }
 
-void	push_all_chunks(t_data *stack, int chunk_size)
+void	push_all_chunks(t_data *stack, int chunk_size, int is_print)
 {
 	int	total;
 	int	i;
@@ -73,12 +73,12 @@ void	push_all_chunks(t_data *stack, int chunk_size)
 		max = min + chunk_size - 1;
 		if (max >= total)
 			max = total - 1;
-		push_chunk(stack, min, max);
+		push_chunk(stack, min, max, is_print);
 		i++;
 	}
 }
 
-void	push_back_to_a(t_data *stack)
+void	push_back_to_a(t_data *stack, int is_print)
 {
 	int	pos;
 	int	size;
@@ -87,7 +87,7 @@ void	push_back_to_a(t_data *stack)
 	{
 		if (stack->b->rank == find_max_rank(stack->b))
 		{
-			pa(stack);
+			pa(stack, is_print);
 			continue ;
 		}
 		size = stack_size(stack->b);
@@ -96,7 +96,7 @@ void	push_back_to_a(t_data *stack)
 		{
 			while (pos > 0)
 			{
-				rb(stack, 1);
+				rb(stack, 1, is_print);
 				pos--;
 			}
 		}
@@ -104,11 +104,11 @@ void	push_back_to_a(t_data *stack)
 		{
 			while (pos < size)
 			{
-				rrb(stack, 1);
+				rrb(stack, 1, is_print);
 				pos++;
 			}
 		}
-		pa(stack);
+		pa(stack, is_print);
 	}
 }
 

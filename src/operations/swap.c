@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	sa(t_data *stack, int is_separate)
+void	sa(t_data *stack, int is_separate, int is_print)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -27,11 +27,12 @@ void	sa(t_data *stack, int is_separate)
 	{
 		stack->stats.sa_count += 1;
 		stack->stats.total_ops += 1;
-		write(1, "sa\n", 3);
+		if (is_print == 1)
+			write(1, "sa\n", 3);
 	}
 }
 
-void	sb(t_data *stack, int is_separate)
+void	sb(t_data *stack, int is_separate, int is_print)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -47,17 +48,19 @@ void	sb(t_data *stack, int is_separate)
 	{
 		stack->stats.sb_count += 1;
 		stack->stats.total_ops += 1;
-		write(1, "sb\n", 3);
+		if (is_print == 1)
+			write(1, "sb\n", 3);
 	}
 }
 
-void	ss(t_data *stack)
+void	ss(t_data *stack, int is_print)
 {
 	if (!stack || !stack->a || !stack->b)
 		return ;
-	sa(stack, 0);
-	sb(stack, 0);
+	sa(stack, 0, 0);
+	sb(stack, 0, 0);
 	stack->stats.ss_count += 1;
 	stack->stats.total_ops += 1;
-	write(1, "ss\n", 3);
+	if (is_print == 1)
+		write(1, "ss\n", 3);
 }

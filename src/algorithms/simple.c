@@ -38,7 +38,7 @@ int	find_min_pos(t_stack *stack)
 	return (min_pos);
 }
 
-void	rotate_to_top(t_data *stack, int pos)
+void	rotate_to_top(t_data *stack, int pos, int is_print)
 {
 	int	size;
 
@@ -47,7 +47,7 @@ void	rotate_to_top(t_data *stack, int pos)
 	{
 		while (pos > 0)
 		{
-			ra(stack, 1);
+			ra(stack, 1, is_print);
 			pos--;
 		}
 	}
@@ -55,13 +55,13 @@ void	rotate_to_top(t_data *stack, int pos)
 	{
 		while (pos < size)
 		{
-			rra(stack, 1);
+			rra(stack, 1, is_print);
 			pos++;
 		}
 	}
 }
 
-void	selection_sort(t_data *stack)
+void	selection_sort(t_data *stack, int is_print)
 {
 	int	min_pos;
 
@@ -69,17 +69,15 @@ void	selection_sort(t_data *stack)
 		return ;
 	if (stack_size(stack->a) == 2)
 	{
-		sa(stack, 1);
+		sa(stack, 1, is_print);
 		return ;
 	}
 	while (stack->a != NULL)
 	{
 		min_pos = find_min_pos(stack->a);
-		rotate_to_top(stack, min_pos);
-		pb(stack);
+		rotate_to_top(stack, min_pos, is_print);
+		pb(stack, is_print);
 	}
 	while (stack->b != NULL)
-	{
-		pa(stack);
-	}
+		pa(stack, is_print);
 }

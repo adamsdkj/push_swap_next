@@ -113,7 +113,7 @@ int	main(int argc, char *argv[])
 
 	data = data_init();
 	data = parse_argument(argc, argv);
-	chunk_sort(&data);
-	// stack_print(data.a);
+
+	chunk_sort(&data, 0);
 	return (0);
 }

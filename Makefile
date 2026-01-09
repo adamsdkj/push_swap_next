@@ -8,6 +8,7 @@ SRC_DIR		:= src
 ALG_DIR		:= algorithms
 OPS_DIR		:= operations
 STACK_DIR	:= stack
+PRINT_DIR	:= prints
 LIBFT_DIR	:= libft
 
 SRC_FILES 	:= \
@@ -16,16 +17,17 @@ SRC_FILES 	:= \
 		parsing_helpers.c \
 		parsing_helpers2.c \
 		$(ALG_DIR)/simple.c \
-		$(ALG_DIR)/medium.c \
-		$(ALG_DIR)/medium_utils.c \
-		$(ALG_DIR)/medium_utils_2.c \
-		$(ALG_DIR)/math_operations.c \
 		$(OPS_DIR)/swap.c \
 		$(OPS_DIR)/push.c \
 		$(OPS_DIR)/rotate.c \
 		$(OPS_DIR)/reverse_rotate.c \
 		$(STACK_DIR)/stack_init.c \
-		$(STACK_DIR)/stack_init_two.c
+		$(STACK_DIR)/stack_init_two.c \
+		$(PRINT_DIR)/print_op.c \
+		$(ALG_DIR)/medium.c \
+		$(ALG_DIR)/medium_utils.c \
+		$(ALG_DIR)/medium_utils_2.c \
+		$(ALG_DIR)/math_operations.c 
 
 SRCS 		:= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS 		:= $(SRCS:.c=.o)
