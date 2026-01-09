@@ -93,7 +93,6 @@ void	assign_ranks(t_stack *stack_a);
 void	push_all_chunks(t_data *stack, int chunk_size, int is_print);
 void	push_back_to_a(t_data *stack, int is_print);
 void	push_chunk(t_data *stack, int min_rank, int max_rank, int is_print);
-void    printops(t_stats    stats);
 void	chunk_sort(t_data *stack, int is_print);
 
 #endif
