@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
+/*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-12-31 12:55:28 by adadra            #+#    #+#             */
-/*   Updated: 2026/01/07 23:39:36 by cbahry           ###   ########.fr       */
+/*   Created: 2025/12/31 12:55:28 by adadra            #+#    #+#             */
+/*   Updated: 2026/01/09 03:36:03 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_stack
 {
 	int				value;
+	int				rank;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -87,5 +88,9 @@ void	sb(t_data *stack, int is_separate);
 void	sa(t_data *stack, int is_separate);
 void	ss(t_data *stack);
 void	selection_sort(t_data *stack);
+int		ft_sqrt(float nb);
+void	assign_ranks(t_stack *stack_a);
+void	push_all_chunks(t_data *stack, int chunk_size);
+void	push_back_to_a(t_data *stack);
 
 #endif

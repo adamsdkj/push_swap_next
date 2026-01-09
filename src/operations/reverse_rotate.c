@@ -17,7 +17,7 @@ void	rra(t_data *stack, int is_separate)
 	t_stack	*last;
 	t_stack	*before_last;
 
-	if (!stack || !stack->a || stack->a->next)
+	if (!stack || !stack->a || !stack->a->next)
 		return ;
 	before_last = stack->a;
 	while (before_last->next->next != NULL)

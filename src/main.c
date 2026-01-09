@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
+/*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-01-01 14:06:04 by adadra            #+#    #+#             */
-/*   Updated: 2026-01-01 14:06:04 by adadra           ###   ########.fr       */
+/*   Created: 2026/01/01 14:06:04 by adadra            #+#    #+#             */
+/*   Updated: 2026/01/09 03:39:50 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static t_stack	*parse_numbers2(char *argv[], int start)
@@ -111,9 +112,7 @@ int	main(int argc, char *argv[])
 
 	data = data_init();
 	data = parse_argument(argc, argv);
+	selection_sort(&data);
 	stack_print(data.a);
-	stack_free(&data.a);
-	printf("bench mode: %d\n", data.bench);
-	printf("strat: %d", data.strategy);
 	return (0);
 }
