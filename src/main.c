@@ -6,7 +6,7 @@
 /*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 14:06:04 by adadra            #+#    #+#             */
-/*   Updated: 2026/01/09 03:39:50 by cbahry           ###   ########.fr       */
+/*   Updated: 2026/01/09 19:53:48 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	main(int argc, char *argv[])
 
 	data = data_init();
 	data = parse_argument(argc, argv);
-	selection_sort(&data);
+	chunk_sort(&data);
 	// stack_print(data.a);
 	return (0);
 }
