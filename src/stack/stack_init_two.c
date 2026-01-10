@@ -50,6 +50,8 @@ float	compute_disorder(t_stack *a)
 	float		total_pairs;
 	float		disorder;
 
+	if (stack_size(a) == 1)
+		return (0.0);
 	disorder = 0.0;
 	mistake = 0.0;
 	total_pairs = 0.0;
