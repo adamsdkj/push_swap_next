@@ -32,6 +32,8 @@ void	handle_algorithms(t_data *data)
 	char	*str;
 
 	str = NULL;
+	if (stack_is_sorted(data->a) == 1)
+		return ;
 	if (data->bench == 0)
 		select_algorithms(data, 1, &str);
 	else if (data->bench == 1)
