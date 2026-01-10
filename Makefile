@@ -27,6 +27,7 @@ SRC_FILES 	:= \
 		$(ALG_DIR)/medium.c \
 		$(ALG_DIR)/medium_utils.c \
 		$(ALG_DIR)/medium_utils_2.c \
+		$(ALG_DIR)/complex.c \
 		$(ALG_DIR)/math_operations.c \
 		$(BENCH_DIR)/bench.c \
 		$(ALG_DIR)/adaptive.c

@@ -6,7 +6,7 @@
 /*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:55:28 by adadra            #+#    #+#             */
-/*   Updated: 2026/01/09 03:36:03 by cbahry           ###   ########.fr       */
+/*   Updated: 2026/01/10 04:06:46 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,14 @@ int		ft_sqrt(float nb);
 void	assign_ranks(t_stack *stack_a);
 void	push_all_chunks(t_data *stack, int chunk_size, int is_print);
 void	push_back_to_a(t_data *stack, int is_print);
+int		find_rank(int *sorted, int size, int value);
 void	push_chunk(t_data *stack, int min_rank, int max_rank, int is_print);
+int		find_max_rank(t_stack *b);
 void	chunk_sort(t_data *stack, int is_print);
 void	bench(t_data data, char *str);
 float	compute_disorder(t_stack *a);
 void	adaptive(t_data *data, char **str, int is_print);
 void	handle_algorithms(t_data *data);
+void	radix_sort(t_data *stack, int is_print);
 
 #endif

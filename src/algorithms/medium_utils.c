@@ -43,9 +43,9 @@ int	*sort_array(int *array, int stack_size)
 
 int	*create_sorted_array(t_stack *stack_a)
 {
-	int	i;
-	int	size;
-	int	*sorted_array;
+	int		i;
+	int		size;
+	int		*sorted_array;
 	t_stack	*current;
 
 	if (!stack_a)
@@ -66,33 +66,18 @@ int	*create_sorted_array(t_stack *stack_a)
 	return (sorted_array);
 }
 
-void	assign_ranks(t_stack *stack_a)
+void	assign_ranks(t_stack *a)
 {
 	int		*sorted;
 	t_stack	*current;
-	int	left;
-	int	right;
-	int	mid;
+	int		size;
 
-	sorted = create_sorted_array(stack_a);
-	current = stack_a;
+	sorted = create_sorted_array(a);
+	size = stack_size(a);
+	current = a;
 	while (current)
 	{
-		left = 0;
-		right = stack_size(stack_a) - 1;
-		while (left <= right)
-		{
-			mid = (left + right) / 2;
-			if (sorted[mid] == current->value)
-			{
-				current->rank = mid;
-				break ;
-			}
-			else if (sorted[mid] < current->value)
-				left = mid + 1;
-			else
-				right = mid - 1;
-		}
+		current->rank = find_rank(sorted, size, current->value);
 		current = current->next;
 	}
 	free(sorted);
@@ -100,15 +85,17 @@ void	assign_ranks(t_stack *stack_a)
 
 int	find_pos_in_range(t_stack *a, int min, int max)
 {
-	int	pos = 0;
+	int	pos;
+
+	pos = 0;
 	while (a)
 	{
 		if (a->rank >= min && a->rank <= max)
-			return pos;
+			return (pos);
 		pos++;
 		a = a->next;
 	}
-	return -1;
+	return (-1);
 }
 
 void	push_chunk(t_data *s, int min, int max, int is_print)
@@ -122,7 +109,7 @@ void	push_chunk(t_data *s, int min, int max, int is_print)
 	{
 		pos = find_pos_in_range(s->a, min, max);
 		if (pos == -1)
-			break;
+			break ;
 		size = stack_size(s->a);
 		if (pos <= size / 2)
 			while (pos--)
@@ -135,4 +122,3 @@ void	push_chunk(t_data *s, int min, int max, int is_print)
 			rb(s, 1, is_print);
 	}
 }
-

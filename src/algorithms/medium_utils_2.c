@@ -14,9 +14,9 @@
 
 int	find_max_pos(t_stack *b)
 {
-	int	max_rank;
-	int	pos;
-	int i;
+	int		max_rank;
+	int		pos;
+	int		i;
 	t_stack	*current;
 
 	if (!b)
@@ -94,21 +94,35 @@ void	push_back_to_a(t_data *stack, int is_print)
 		pos = find_max_pos(stack->b);
 		if (pos <= size / 2)
 		{
-			while (pos > 0)
-			{
+			while (pos-- > 0)
 				rb(stack, 1, is_print);
-				pos--;
-			}
 		}
 		else
 		{
-			while (pos < size)
-			{
+			while (pos++ < size)
 				rrb(stack, 1, is_print);
-				pos++;
-			}
 		}
 		pa(stack, is_print);
 	}
 }
 
+int	find_rank(int *sorted, int size, int value)
+{
+	int	left;
+	int	right;
+	int	mid;
+
+	left = 0;
+	right = size - 1;
+	while (left <= right)
+	{
+		mid = (left + right) / 2;
+		if (sorted[mid] == value)
+			return (mid);
+		if (sorted[mid] < value)
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
+	return (-1);
+}
