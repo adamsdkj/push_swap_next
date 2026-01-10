@@ -48,6 +48,8 @@ void	radix_sort(t_data *stack, int is_print)
 	int	bit;
 	int	max_bits;
 
+	if (stack_size(stack->a) == 0)
+		return ;
 	max_bits = get_max_bits(stack->a);
 	bit = 0;
 	while (bit < max_bits)
