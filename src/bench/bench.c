@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first.c                                            :+:      :+:    :+:   */
+/*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
+/*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-01-09 22:14:14 by adadra            #+#    #+#             */
-/*   Updated: 2026-01-09 22:14:14 by adadra           ###   ########.fr       */
+/*   Created: 2026/01/09 22:14:14 by adadra            #+#    #+#             */
+/*   Updated: 2026/01/10 04:14:08 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*strategy_name(int i)
 	else if (i == 1)
 		return (strategy = "Medium / O(n√n)");
 	else if (i == 2)
-		return (strategy = "Simple / O(nlogn)");
+		return (strategy = "Complex / O(nlogn)");
 	else if (i == 3)
 		return (strategy = "Adaptive ");
 	return (strategy);
@@ -50,7 +50,7 @@ void	print_float(float n, int precision)
 }
 
 void	bench(t_data data, char *str)
-{	
+{
 	ft_printf("[bench]  disorder:   ");
 	print_float(data.stats.disorder * 100, 2);
 	ft_printf("%%\n");

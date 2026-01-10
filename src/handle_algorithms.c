@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_algo.c                                      :+:      :+:    :+:   */
+/*   handle_algorithms.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
+/*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-01-10 01:07:00 by adadra            #+#    #+#             */
-/*   Updated: 2026-01-10 01:07:00 by adadra           ###   ########.fr       */
+/*   Created: 2026/01/10 01:07:00 by adadra            #+#    #+#             */
+/*   Updated: 2026/01/10 04:12:13 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	select_algorithms(t_data *data, int is_print, char **str)
@@ -18,7 +19,10 @@ void	select_algorithms(t_data *data, int is_print, char **str)
 	else if (data->strategy == 1)
 		chunk_sort(data, is_print);
 	else if (data->strategy == 2)
-		printf("this is complex srategy");
+	{
+		assign_ranks(data->a);
+		radix_sort(data, is_print);
+	}
 	else if (data->strategy == 3)
 		adaptive(data, str, is_print);
 }

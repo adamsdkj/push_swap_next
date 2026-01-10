@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adadra <adadra@student.42.fr>              #+#  +:+       +#+        */
+/*   By: cbahry <cbahry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-01-10 00:44:04 by adadra            #+#    #+#             */
-/*   Updated: 2026-01-10 00:44:04 by adadra           ###   ########.fr       */
+/*   Created: 2026/01/10 00:44:04 by adadra            #+#    #+#             */
+/*   Updated: 2026/01/10 04:13:00 by cbahry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	adaptive(t_data *data, char **str, int is_print)
@@ -25,7 +26,8 @@ void	adaptive(t_data *data, char **str, int is_print)
 	}
 	else if (data->stats.disorder >= 0.5)
 	{
-		printf("complex sorting");
+		assign_ranks(data->a);
+		radix_sort(data, is_print);
 		*str = "/ O(nlogn)";
 	}
 }
