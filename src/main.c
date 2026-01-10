@@ -113,7 +113,8 @@ int	main(int argc, char *argv[])
 
 	data = data_init();
 	data = parse_argument(argc, argv);
-
+	data.stats.disorder = compute_disorder(data.a); 
 	chunk_sort(&data, 0);
+	bench(data);
 	return (0);
 }

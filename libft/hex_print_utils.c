@@ -19,7 +19,7 @@ int	ft_print_hex_ptr(unsigned long n, int *count)
 	base = "0123456789abcdef";
 	if (n >= 16)
 		ft_print_hex_ptr(n / 16, count);
-	*count += write(1, &base[n % 16], 1);
+	*count += write(2, &base[n % 16], 1);
 	return (*count);
 }
 
@@ -31,8 +31,8 @@ int	ft_print_ptr(void *ptr)
 	address = (unsigned long) ptr;
 	count = 0;
 	if (address == 0)
-		return (write(1, "(nil)", 5));
-	count += write(1, "0x", 2);
+		return (write(2, "(nil)", 5));
+	count += write(2, "0x", 2);
 	ft_print_hex_ptr(address, &count);
 	return (count);
 }
@@ -46,6 +46,6 @@ int	ft_print_hex(unsigned int n, int is_upper, int *count)
 		base = "0123456789ABCDEF";
 	if (n >= 16)
 		ft_print_hex(n / 16, is_upper, count);
-	*count += write(1, &base[n % 16], 1);
+	*count += write(2, &base[n % 16], 1);
 	return (*count);
 }

@@ -53,7 +53,7 @@ void	ft_fill_reverse_u(unsigned int num, int i, char *result)
 	k = 0;
 	while (result[k])
 	{
-		write(1, &result[k], 1);
+		write(2, &result[k], 1);
 		k++;
 	}
 	free(result);
@@ -71,7 +71,7 @@ int	ft_utoa(unsigned int n)
 	if (n == 0)
 	{
 		result[0] = '0';
-		write(1, &result[0], 1);
+		write(2, &result[0], 1);
 		free(result);
 		return (1);
 	}

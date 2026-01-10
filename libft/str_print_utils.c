@@ -14,7 +14,7 @@
 
 int	ft_print_char(char c)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 	return (1);
 }
 
@@ -25,12 +25,12 @@ int	ft_print_str(char *s)
 	count = 0;
 	if (s == 0)
 	{
-		count += write(1, "(null)", 6);
+		count += write(2, "(null)", 6);
 		return (count);
 	}
 	while (s && *s)
 	{
-		write(1, s, 1);
+		write(2, s, 1);
 		count++;
 		s++;
 	}

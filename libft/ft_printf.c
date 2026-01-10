@@ -57,12 +57,12 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%' && *(++format))
 		{
 			if (*format == '%')
-				total += write(1, "%", 1);
+				total += write(2, "%", 1);
 			else if (is_valid_specifier(*format))
 				total += ft_format(args, *format);
 		}
 		else if (*format != '%' && *format != '\0')
-			total += write(1, format, 1);
+			total += write(2, format, 1);
 		if (*format)
 			format++;
 	}

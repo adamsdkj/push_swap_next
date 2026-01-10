@@ -8,6 +8,7 @@ SRC_DIR		:= src
 ALG_DIR		:= algorithms
 OPS_DIR		:= operations
 STACK_DIR	:= stack
+BENCH_DIR	:= bench
 LIBFT_DIR	:= libft
 
 SRC_FILES 	:= \
@@ -25,7 +26,8 @@ SRC_FILES 	:= \
 		$(ALG_DIR)/medium.c \
 		$(ALG_DIR)/medium_utils.c \
 		$(ALG_DIR)/medium_utils_2.c \
-		$(ALG_DIR)/math_operations.c 
+		$(ALG_DIR)/math_operations.c \
+		$(BENCH_DIR)/bench.c 
 
 SRCS 		:= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS 		:= $(SRCS:.c=.o)

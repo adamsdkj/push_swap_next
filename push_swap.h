@@ -94,5 +94,7 @@ void	push_all_chunks(t_data *stack, int chunk_size, int is_print);
 void	push_back_to_a(t_data *stack, int is_print);
 void	push_chunk(t_data *stack, int min_rank, int max_rank, int is_print);
 void	chunk_sort(t_data *stack, int is_print);
+void	bench(t_data data);
+float	compute_disorder(t_stack *a);
 
 #endif
