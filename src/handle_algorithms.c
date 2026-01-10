@@ -36,7 +36,7 @@ void	handle_algorithms(t_data *data)
 		select_algorithms(data, 1, &str);
 	else if (data->bench == 1)
 	{
-		select_algorithms(data, 0, &str);
+		select_algorithms(data, 1, &str);
 		bench(*data, str);
 	}
 }
