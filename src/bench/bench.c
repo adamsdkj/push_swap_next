@@ -24,7 +24,7 @@ char	*strategy_name(int i)
 	else if (i == 2)
 		return (strategy = "Simple / O(nlogn)");
 	else if (i == 3)
-		return (strategy = "Adaptive we get this from adaptive fun");
+		return (strategy = "Adaptive ");
 	return (strategy);
 }
 
@@ -49,12 +49,15 @@ void	print_float(float n, int precision)
 	ft_printf("%d.%d", int_part, frac_part);
 }
 
-void	bench(t_data data)
+void	bench(t_data data, char *str)
 {	
 	ft_printf("[bench]  disorder:   ");
 	print_float(data.stats.disorder * 100, 2);
 	ft_printf("%%\n");
-	ft_printf("[bench]  strategy:   %s\n", strategy_name(data.strategy));
+	ft_printf("[bench]  strategy:   %s", strategy_name(data.strategy));
+	if (str)
+		ft_printf("%s", str);
+	ft_printf("\n");
 	ft_printf("[bench]  total_ops:  %d\n", data.stats.total_ops);
 	ft_printf("[bench]  sa:  %d  sb:  %d  ss:  %d  pa:  %d  pb:  %d\n",
 		data.stats.sa_count, data.stats.sb_count,

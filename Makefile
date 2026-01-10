@@ -13,6 +13,7 @@ LIBFT_DIR	:= libft
 
 SRC_FILES 	:= \
 		main.c \
+		handle_algorithms.c \
 		handle_error.c \
 		parsing_helpers.c \
 		parsing_helpers2.c \
@@ -27,7 +28,8 @@ SRC_FILES 	:= \
 		$(ALG_DIR)/medium_utils.c \
 		$(ALG_DIR)/medium_utils_2.c \
 		$(ALG_DIR)/math_operations.c \
-		$(BENCH_DIR)/bench.c 
+		$(BENCH_DIR)/bench.c \
+		$(ALG_DIR)/adaptive.c
 
 SRCS 		:= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS 		:= $(SRCS:.c=.o)
